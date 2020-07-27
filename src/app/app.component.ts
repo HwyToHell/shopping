@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'shopping';
+  isRecipesOn = true;
+  isShoppingListOn = true;
+
+  showRecipes = () => {
+   this.isRecipesOn = !this.isRecipesOn; 
+  }
+
+  showShoppingList = () => {
+    this.isShoppingListOn = !this.isShoppingListOn; 
+   }
 }
