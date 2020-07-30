@@ -10,11 +10,14 @@
       <button class="btn btn-primary">Bootstrap 4 Test</button>
       <app-recipes *ngIf="isRecipesOn"></app-recipes>
       <app-shopping-list *ngIf="isShoppingListOn"></app-shopping-list>
+
       <!-- <p myDirective>Styling with custom my-directive</p> -->
-      <p myDirective [defaultColor]=" 'yellow' " [highlightColor]=" 'orchid' ">Styling with custom my-directive</p>
+      <p myDirective [defaultColor]=" 'yellow' " [highlightColor]=" 'orchid' ">
+        Styling with custom my-directive</p>
       <div *appUnless="isRecipesOn">
         <p>Recipes are hidden</p>
       </div>
+      <p appDropdown>Change class with directive</p>
     </div>
   </div>
 </div>
