@@ -1,4 +1,4 @@
-import { Directive, ElementRef, HostListener, Renderer2, HostBinding } from '@angular/core';
+import { Directive, ElementRef, EventEmitter, HostListener, Renderer2, HostBinding, Output } from '@angular/core';
 
 // add css class when it is clicked, remo
 
@@ -6,9 +6,11 @@ import { Directive, ElementRef, HostListener, Renderer2, HostBinding } from '@an
   selector: '[appDropdown]'
 })
 export class DropdownDirective {
-  @HostBinding('class.hlt') isOpen = false;
+  @HostBinding('class.show') isOpen = false;
+  @Output('showDropdown') dropdown = new EventEmitter<boolean>();
   
   @HostListener('click') toggleOpen() {
     this.isOpen = !this.isOpen;
+    this.dropdown.emit(true);
   }
 }

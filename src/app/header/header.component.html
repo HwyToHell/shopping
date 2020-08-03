@@ -14,13 +14,13 @@
             <a class="nav-item nav-link" (click)="onShoppingList()" href="#">Shopping List</a>
         </div>
         <div class="navbar-nav">
-            <div class="nav-item dropdown">
+            <div class="nav-item dropdown" appDropdown (showDropdown)="onDropdown()">
                 <a class="nav-link dropdown-toggle" href="#" role="button"
                     id="navbarDropdownMenuLink" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
                     Pick
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <div class="dropdown-menu" [ngClass]="isDropdown ? 'show' : ''" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="#">Save List1</a>
                     <a class="dropdown-item" href="#">Save List2</a>
                 </div>

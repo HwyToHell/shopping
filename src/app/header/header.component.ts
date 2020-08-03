@@ -7,6 +7,7 @@ import { Component, Output, EventEmitter } from '@angular/core';
 })
 export class HeaderComponent {
   isRecipesOn: boolean = true;
+  isDropdown: boolean = false;
   @Output() showRecipes = new EventEmitter<boolean>();
   isShoppingListOn: boolean = true;
   @Output() showShoppingList = new EventEmitter<boolean>();
@@ -23,6 +24,11 @@ export class HeaderComponent {
     this.isShoppingListOn = !this.isShoppingListOn;
     this.showShoppingList.emit(this.isShoppingListOn);
     console.log(this.isShoppingListOn);
+  }
+
+  onDropdown() {
+    this.isDropdown = !this.isDropdown;
+    console.log("show dropdown");
   }
 
 }
