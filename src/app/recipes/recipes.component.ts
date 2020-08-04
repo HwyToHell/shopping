@@ -14,7 +14,7 @@ export class RecipesComponent implements OnInit {
 
   ngOnInit(): void {
     this.recipeSvs.recipeSelected.subscribe(
-      (receivedRecipe: Recipe) => { this.recipe = receivedRecipe }
+      (receivedRecipe: Recipe) => { this.recipe = receivedRecipe; }
     );
   }
 
