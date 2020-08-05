@@ -5,7 +5,6 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { MyDirective } from './my-directive.directive';
 import { RecipesComponent } from './recipes/recipes.component';
 import { RecipeListComponent } from './recipes/recipe-list/recipe-list.component';
 import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.component';
@@ -21,7 +20,6 @@ import { ShoppingListService } from './shopping-list/shopping-list.service';
   declarations: [
     AppComponent,
     HeaderComponent,
-    MyDirective,
     RecipesComponent,
     RecipeListComponent,
     RecipeDetailComponent,

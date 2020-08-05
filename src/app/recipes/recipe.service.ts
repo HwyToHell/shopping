@@ -1,6 +1,7 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { Recipe } from './recipe.model';
 import { Ingredient } from '../shared/ingredient.model';
+import { ShoppingListService } from '../shopping-list/shopping-list.service';
 
 @Injectable({
   providedIn: 'root'
@@ -25,7 +26,16 @@ export class RecipeService {
       ]),
   ];
 
+  constructor(private shoppingListSvs: ShoppingListService) {};
+
   getRecipes() {
     return this.recipes.slice();
+  }
+
+  addIngredientsToShoppingList(ingredients: Ingredient[]) {
+    // calling addIngredient multiple times will emit a lot of events, better way:
+    //   create new method addIngredients() that adds all at once
+    // ingredients.forEach(ingredient => this.shoppingListSvs.addIngredient(ingredient));
+    this.shoppingListSvs.addIngredients(ingredients);
   }
 }

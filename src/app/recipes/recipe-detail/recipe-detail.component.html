@@ -14,13 +14,13 @@
 </div>
 <div class="row">
     <div class="col-sm-12">
-        <div class="dropdown">
+        <div class="dropdown" appDropdown (showDropdown)="onDropdown()">
             <button type="button" class="btn btn-primary dropdown-toggle"
                 data-toggle="dropdown">
                 Manage recipe
             </button>
-            <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">To shopping list</a>
+            <div class="dropdown-menu" [ngClass]="isDropdown ? 'show' : ''">
+                <a class="dropdown-item" (click)="onAddToShoppingList()" style="cursor: pointer">To shopping list</a>
                 <a class="dropdown-item" href="#">Edit recipe</a>
                 <a class="dropdown-item" href="#">Delete recipe</a>
             </div>
