@@ -1,4 +1,4 @@
-<a (click)="onClick()" href="#" class="list-group-item clearfix">
+<a [routerLink]="[idx]" style="cursor: pointer;" class="list-group-item clearfix">
     <div class="float-left">
         <h4 class="list-group-item-heading">{{ recipeItem.name }}</h4>
         <p class="list-group-item-text">{{ recipeItem.description }}</p>

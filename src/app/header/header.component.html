@@ -10,22 +10,22 @@
 
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav mr-auto">
-            <a class="nav-item nav-link" (click)="onRecipes()" href="#">Recipes</a>
-            <a class="nav-item nav-link" (click)="onShoppingList()" href="#">Shopping List</a>
+            <a class="nav-item nav-link" routerLinkActive="active" routerLink="/recipes">Recipes</a>
+            <a class="nav-item nav-link" routerLinkActive="active" routerLink="/shopping-list">Shopping List</a>
         </div>
         <div class="navbar-nav">
             <div class="nav-item dropdown" appDropdown (showDropdown)="onDropdown()">
-                <a class="nav-link dropdown-toggle" href="#" role="button"
+                <a class="nav-link dropdown-toggle" role="button"
                     id="navbarDropdownMenuLink" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
                     Pick
                 </a>
-                <div class="dropdown-menu" [ngClass]="isDropdown ? 'show' : ''" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="#">Save List1</a>
-                    <a class="dropdown-item" href="#">Save List2</a>
+                <div class="dropdown-menu" [ngClass]="isDropdown ? 'show' : ''" style="cursor: pointer;" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item">Save List1</a>
+                    <a class="dropdown-item">Save List2</a>
                 </div>
             </div>
-            <a class="nav-item nav-link" href="#">Save</a>
+            <a class="nav-item nav-link">Save</a>
 
         </div>
     </div>

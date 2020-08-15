@@ -1,6 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Recipe } from '../recipe.model';
 import { RecipeService} from '../recipe.service';
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-recipe-detail',
@@ -9,11 +10,21 @@ import { RecipeService} from '../recipe.service';
 })
 export class RecipeDetailComponent implements OnInit {
   isDropdown: boolean = false;
-  @Input() recipeChild: Recipe;
+  id: number;
+  // fetch from route instead of input
+  recipeChild: Recipe;
 
-  constructor(private recipeSvs: RecipeService) { }
+  constructor(private recipeSvs: RecipeService,
+    private route:ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.route.params.subscribe(
+      (params: Params) => {
+        this.id = +params['id'];
+        console.log("recipe id:", this.id);
+        this.recipeChild = this.recipeSvs.getRecipe(this.id);
+      }
+    );
   }
 
   onDropdown() {

@@ -32,6 +32,11 @@ export class RecipeService {
     return this.recipes.slice();
   }
 
+  // load single recipe by id, retrieved from route
+  getRecipe(idx: number): Recipe {
+    return this.recipes[idx];
+  }
+
   addIngredientsToShoppingList(ingredients: Ingredient[]) {
     // calling addIngredient multiple times will emit a lot of events, better way:
     //   create new method addIngredients() that adds all at once
