@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Recipe } from '../recipe.model';
 import { RecipeService} from '../recipe.service';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 @Component({
   selector: 'app-recipe-detail',
@@ -15,6 +15,7 @@ export class RecipeDetailComponent implements OnInit {
   recipeChild: Recipe;
 
   constructor(private recipeSvs: RecipeService,
+    private router: Router,
     private route:ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -36,6 +37,12 @@ export class RecipeDetailComponent implements OnInit {
     this.recipeSvs.addIngredientsToShoppingList(this.recipeChild.ingredients);
     // forEach approach will emit unnecessary events
     //this.recipeChild.ingredients.forEach(ingredient => this.shoppingSvs.addIngredient(ingredient) );
+  }
+
+  onEdit() {
+    this.router.navigate(['edit'], {relativeTo: this.route});
+    // more complex routes can also be constructed this way
+    // this.router.navigate(['../', this.id, 'edit'], {relativeTo: this.route});
   }
 
 }

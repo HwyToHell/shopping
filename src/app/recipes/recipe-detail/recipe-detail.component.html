@@ -19,9 +19,9 @@
                 data-toggle="dropdown">
                 Manage recipe
             </button>
-            <div class="dropdown-menu" [ngClass]="isDropdown ? 'show' : ''">
-                <a class="dropdown-item" (click)="onAddToShoppingList()" style="cursor: pointer">To shopping list</a>
-                <a class="dropdown-item">Edit recipe</a>
+            <div class="dropdown-menu" style="cursor: pointer;" [ngClass]="isDropdown ? 'show' : ''">
+                <a class="dropdown-item" (click)="onAddToShoppingList()">To shopping list</a>
+                <a class="dropdown-item" (click)="onEdit()">Edit recipe</a>
                 <a class="dropdown-item">Delete recipe</a>
             </div>
         </div>

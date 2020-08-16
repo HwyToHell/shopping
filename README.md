@@ -12,6 +12,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 -     recipes.comp: router-outlet (for child route content)
 -     recipe-detail.comp: fetch recipeChild from route
 -   edit: recipe
+-     editing component: recipes/recipe-edit
 - index: shopping list
 
 * add RecipeEdit component
