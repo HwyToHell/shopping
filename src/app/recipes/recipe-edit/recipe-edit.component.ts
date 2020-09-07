@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
+import { FormGroup, FormControl } from '@angular/forms';
+import { RecipeService } from '../recipe.service';
 
 @Component({
   selector: 'app-recipe-edit',
@@ -9,16 +11,47 @@ import { ActivatedRoute, Params } from '@angular/router';
 export class RecipeEditComponent implements OnInit {
   id: number;
   isEditMode = false;
+  recipeForm: FormGroup;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute,
+    private recipeSvs: RecipeService) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(
       (params: Params) => {
         this.id = +params['id'];
         this.isEditMode = params['id'] != null;
+        // reload form whenever route params change
+        this.initForm();
       }
     )
+  }
+
+  onSubmit() {
+    console.log(this.recipeForm);
+  }
+ 
+  private initForm() {
+    let recipeName = '';
+    let recipeDescription = '';
+    let recipeImageUrl = '';
+    console.log(this.isEditMode);
+
+
+    if (this.isEditMode) {
+      // only get recipe data, if in edit mode
+      const recipe = this.recipeSvs.getRecipe(this.id);
+      recipeName = recipe.name;
+      recipeDescription = recipe.description;
+      recipeImageUrl = recipe.imagePath;
+    }
+
+    this.recipeForm = new FormGroup({
+      // either empty (not in edit mode) or current recipe name (in edit mode)
+      'name': new FormControl(recipeName),
+      'description': new FormControl(recipeDescription),
+      'imageUrl': new FormControl(recipeImageUrl)
+    });
   }
 
 }
