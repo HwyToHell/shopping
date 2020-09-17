@@ -37,8 +37,8 @@ export class RecipeService {
     this.recipesChanged.next(this.recipes.slice());
   }
 
-  updateRecipe(index: number, recipe: Recipe) {
-    this.recipes[index] = recipe;
+  deleteRecipe(index: number) {
+    this.recipes.splice(index, 1);
     this.recipesChanged.next(this.recipes.slice());
   }
 
@@ -56,5 +56,10 @@ export class RecipeService {
     //   create new method addIngredients() that adds all at once
     // ingredients.forEach(ingredient => this.shoppingListSvs.addIngredient(ingredient));
     this.shoppingListSvs.addIngredients(ingredients);
+  }
+
+  updateRecipe(index: number, recipe: Recipe) {
+    this.recipes[index] = recipe;
+    this.recipesChanged.next(this.recipes.slice());
   }
 }

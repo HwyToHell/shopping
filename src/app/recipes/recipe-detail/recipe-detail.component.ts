@@ -28,15 +28,19 @@ export class RecipeDetailComponent implements OnInit {
     );
   }
 
-  onDropdown() {
-    this.isDropdown = !this.isDropdown;
-    //console.log("recipe detail: show dropdown");
-  }
-
   onAddToShoppingList() {
     this.recipeSvs.addIngredientsToShoppingList(this.recipeChild.ingredients);
     // forEach approach will emit unnecessary events
     //this.recipeChild.ingredients.forEach(ingredient => this.shoppingSvs.addIngredient(ingredient) );
+  }
+  
+  onDelete() {
+    this.recipeSvs.deleteRecipe(this.id);
+  }
+
+  onDropdown() {
+    this.isDropdown = !this.isDropdown;
+    //console.log("recipe detail: show dropdown");
   }
 
   onEdit() {
