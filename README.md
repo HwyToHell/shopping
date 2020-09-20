@@ -16,3 +16,6 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ### save button
 * leave route to recipes list
 * this.router.navigate
+
+## 234 delete recipe - fix bug
+* after deleting recipe: recipe detail component still shows recipe details

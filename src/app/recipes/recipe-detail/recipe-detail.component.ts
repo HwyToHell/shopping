@@ -36,6 +36,7 @@ export class RecipeDetailComponent implements OnInit {
   
   onDelete() {
     this.recipeSvs.deleteRecipe(this.id);
+    this.router.navigate(['/recipes'], {relativeTo: this.route});
   }
 
   onDropdown() {
